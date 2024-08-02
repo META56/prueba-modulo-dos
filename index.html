@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOFIMATICA</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('IMG/fondo 001.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .sidebar {
+            width: 250px; 
+            background-color: rgba(0, 0, 0, 0.8); 
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed; 
+            left: -250px; 
+            top: 0;
+            transition: all 0.3s ease; 
+        }
+
+        .sidebar.show {
+            left: 0; 
+        }
+
+        .menu-toggle {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .content {
+            flex: 1;
+            margin-left: 300px; 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(3, auto); 
+            gap: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content.shift {
+            margin-left: 0; 
+        }
+
+        .title {
+            position: absolute;
+            top: 10%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: red; 
+            text-align: center;
+            z-index: 999;
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: cover; 
+            aspect-ratio: 4/3; 
+            display: block;
+            transition: transform 0.3s, filter 0.3s, box-shadow 0.3s; 
+            box-shadow: 0 4px 8px rgba(33, 104, 71, 0.326); 
+        }
+
+        .content img:hover {
+            transform: scale(1.1); 
+            filter: grayscale(0%); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+                grid-template-columns: repeat(2, 1fr); 
+                grid-template-rows: auto; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                grid-template-columns: 1fr; 
+                grid-template-rows: auto; 
+                padding: 5px;
+            }
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .logo {
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle">☰</button>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Menú</h1>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li>Reparación y mantención notebook</li>
+                <li>Venta de hardware, periféricos, insumos en general</li>
+                <li>Configuración de redes wifi, Redes Lan</li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100093186351132">Facebook</a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox">Correo PCOFIMATICA </a></li>
+                
+            </ul>
+        </div>
+        <div class="content">
+            <div><img src="IMG/imagen 1.jpg" alt="Imagen 1"></div>
+            <div><img src="IMG/imagen 2.jpg" alt="Imagen 2"></div>
+            <div><img src="IMG/imagen3.jpg" alt="Imagen  3"></div>
+            <div><img src="IMG/imagen 4.jpg" alt="Imagen 4"></div>
+            <div><img src="IMG/imagen 5.jpg" alt="Imagen 5"></div>
+            <div><img src="IMG/imagen 6.jpg" alt="Imagen 6"></div>
+        </div>
+        <div class="logo">
+            <img src="IMG/LOGO OO1.jpg" alt="Logo">
+        </div>
+        <div class="title">
+           <h1> <center>SERVICIO TÉCNICO PCOFIMATICA</center></h1>
+        </div>
+        <footer>
+            &copy; 2024 PCOFIMATICA. Todos los derechos reservados.
+        </footer>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            sidebar.classList.toggle('show');
+            content.classList.toggle('shift');
+        });
+    </script>
+</body>
+</html>
